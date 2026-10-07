@@ -1,0 +1,87 @@
+[
+  {
+    "id": "jungle",
+    "label": "Jungle",
+    "emoji": "🦜"
+  },
+  {
+    "id": "forest",
+    "label": "Forest",
+    "emoji": "🌳"
+  },
+  {
+    "id": "mangrove",
+    "label": "Mangrove forest",
+    "emoji": "🌿"
+  },
+  {
+    "id": "mountains",
+    "label": "Mountains",
+    "emoji": "⛰️"
+  },
+  {
+    "id": "volcano",
+    "label": "Volcano",
+    "emoji": "🌋"
+  },
+  {
+    "id": "desert",
+    "label": "Desert",
+    "emoji": "🏜️"
+  },
+  {
+    "id": "grasslands",
+    "label": "Grasslands",
+    "emoji": "🌱"
+  },
+  {
+    "id": "rice_fields",
+    "label": "Rice fields",
+    "emoji": "🌾"
+  },
+  {
+    "id": "beach",
+    "label": "Beach",
+    "emoji": "🏝️"
+  },
+  {
+    "id": "riverine",
+    "label": "Riverine",
+    "emoji": "🌊"
+  },
+  {
+    "id": "city_dense",
+    "label": "City Dense",
+    "emoji": "🌆"
+  },
+  {
+    "id": "city_airy",
+    "label": "City Airy",
+    "emoji": "🌇"
+  },
+  {
+    "id": "village",
+    "label": "Village",
+    "emoji": "🏘️"
+  },
+  {
+    "id": "temple",
+    "label": "Temple",
+    "emoji": "🛕"
+  },
+  {
+    "id": "industrial_area",
+    "label": "Industrial area",
+    "emoji": "🏭"
+  },
+  {
+    "id": "transport",
+    "label": "Transport",
+    "emoji": "🚆"
+  },
+  {
+    "id": "indoor",
+    "label": "Indoor",
+    "emoji": "🏠"
+  }
+]

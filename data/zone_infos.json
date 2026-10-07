@@ -1,0 +1,38 @@
+[
+  {
+    "id": "france",
+    "label": "France",
+    "emoji": "🇫🇷",
+    "timezone_option": "Europe/Paris"
+  },
+  {
+    "id": "vietnam-Laos-Thailand",
+    "label": "Vietnam, Laos, Thailand",
+    "emoji": "🇻🇳🇱🇦🇹🇭",
+    "timezone_option": "Asia/Bangkok"
+  },
+  {
+    "id": "philippines",
+    "label": "Philippines",
+    "emoji": "🇵🇭",
+    "timezone_option": "Asia/Manila"
+  },
+  {
+    "id": "eastern-australia",
+    "label": "Eastern Australia",
+    "emoji": "🇦🇺➡️",
+    "timezone_option": "Australia/Sydney"
+  },
+  {
+    "id": "central-australia",
+    "label": "Central Australia",
+    "emoji": "🇦🇺🖖🏼",
+    "timezone_option": "Australia/Adelaide"
+  },
+  {
+    "id": "western-australia",
+    "label": "Western Australia",
+    "emoji": "🇦🇺⬅️",
+    "timezone_option": "Australia/Perth"
+  }
+]

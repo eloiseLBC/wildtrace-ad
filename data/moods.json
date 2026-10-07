@@ -1,0 +1,42 @@
+[
+  {
+    "id": "happy",
+    "label": "Happy",
+    "emoji": "😊"
+  },
+  {
+    "id": "calm",
+    "label": "Calm",
+    "emoji": "😌"
+  },
+  {
+    "id": "focused",
+    "label": "Focused",
+    "emoji": "🎯"
+  },
+  {
+    "id": "tired",
+    "label": "Tired",
+    "emoji": "😴"
+  },
+  {
+    "id": "sad",
+    "label": "Sad",
+    "emoji": "😔"
+  },
+  {
+    "id": "feel_free",
+    "label": "Feel free",
+    "emoji": "🛶"
+  },
+  {
+    "id": "inspired",
+    "label": "Inspired",
+    "emoji": "🎨"
+  },
+  {
+    "id": "anxious",
+    "label": "Anxious",
+    "emoji": "😣"
+  }
+]
