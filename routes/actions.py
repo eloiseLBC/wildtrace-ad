@@ -1,4 +1,5 @@
 from flask import Blueprint, request, redirect
+from markupsafe import escape
 from services.wildtrace import run_collect, run_send, run_compute, run_contextualize
 from services.moods import add_mood
 from services.timezone import get_timezone_option
@@ -11,7 +12,10 @@ def collect():
     zone = request.form.getlist("zone")
     timezone_option = get_timezone_option(zone[0]) if zone else None
     environments = request.form.getlist("environments")
-    run_collect(moods, timezone_option, environments)
+    try:
+        run_collect(moods, timezone_option, environments)
+    except (ValueError, OSError, RuntimeError) as exc:
+        return f'<p>Collecte non enregistrée : {escape(str(exc))}</p><a href="/collect/form">Retour</a>', 400
     return redirect("/")
 
 @actions_bp.route("/send")

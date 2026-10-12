@@ -1,14 +1,18 @@
 from flask import Blueprint
+from markupsafe import escape
+from services.logging_config import FLASK_LOG_FILE
 import subprocess
+from shutil import which
 from pathlib import Path
 from ui.styles import CSS
+from services.wildtrace import WILDTRACE_ROOT
 
 logs_bp = Blueprint("logs", __name__)
 
 @logs_bp.route("/logs/wildtrace")
 def view_wildtrace_logs():
     try:
-        folder = Path("/home/eloise/Desktop/WildTrace/logs/")
+        folder = WILDTRACE_ROOT / "logs"
         if not folder.exists() or not folder.is_dir():
             return "Logs folder not found."
 
@@ -17,7 +21,7 @@ def view_wildtrace_logs():
             return "No log files found."
 
         last_file = max(files, key=lambda f: f.stat().st_mtime)
-        content = last_file.read_text()
+        content = escape(last_file.read_text(encoding="utf-8", errors="replace"))
 
         return f"""
         <html>
@@ -42,10 +46,23 @@ def view_wildtrace_logs():
 @logs_bp.route("/logs/flask")
 def view_flask_logs():
     try:
-        result = subprocess.check_output(
-            ["journalctl", "-u", "wildtrace-admin", "-b", "--no-pager"],
-            text=True
-        )
+        if which("journalctl") is None:
+            if FLASK_LOG_FILE.is_file():
+                with FLASK_LOG_FILE.open("rb") as file:
+                    file.seek(0, 2)
+                    size = file.tell()
+                    file.seek(max(0, size - 100_000))
+                    if size > 100_000:
+                        file.readline()
+                    result = file.read().decode("utf-8", errors="replace")
+            else:
+                result = "Aucun log Flask enregistré pour le moment."
+        else:
+            result = subprocess.check_output(
+                ["journalctl", "-u", "wildtrace-admin", "-b", "--no-pager"],
+                text=True
+            )
+        result = escape(result)
 
         return f"""
         <html>
@@ -63,5 +80,5 @@ def view_flask_logs():
         </body>
         </html>
         """
-    except subprocess.CalledProcessError as e:
+    except (subprocess.CalledProcessError, OSError) as e:
         return f"Error reading systemd logs: {e}"

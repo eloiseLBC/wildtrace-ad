@@ -1,6 +1,9 @@
 import subprocess
+from shutil import which
 
 def get_wifi_status():
+    if which("nmcli") is None:
+        return ("unsupported", None)
     try:
         result = subprocess.check_output(
             "nmcli -t -f NAME,TYPE,DEVICE connection show --active",
